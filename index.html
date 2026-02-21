@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal S Shetty | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Prajwal S Shetty - Computer Science Engineering Student, Cybersecurity Enthusiast, and Student Leader.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">Prajwal<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#sports">Sports</a></li>
+                <li><a href="#social-service">Social</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact" class="btn-nav">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="hero-subtitle">Hello, It's Me</p>
+                    <h1 class="hero-title">Prajwal S Shetty</h1>
+                    <h2 class="hero-role">And I'm a <span class="typing-text">Cybersecurity Enthusiast</span></h2>
+                    <p class="hero-description">
+                        I am a Computer Science Engineering student passionate about cybersecurity, technology, and
+                        leadership. I balance both physical and intellectual challenges, applying discipline,
+                        problem-solving, and resilience to turn real-world problems into effective solutions.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/prajwal-s-shetty5" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:prajwalsshetty96@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/Shetty7879" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/_prajwal_s_shetty_?igsh=M2hpZGlsNWE3YmE%3D"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-image-container">
+                    <div class="hexagon-wrapper">
+                        <div class="hexagon">
+                            <img src="assets/my-image.png" alt="Prajwal S Shetty"
+                                onerror="this.src='https://via.placeholder.com/400'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I am a <strong>Computer Science Engineering student</strong> passionate about
+                            <strong>cybersecurity</strong>, technology, and leadership. Based in <strong>Mandya,
+                                Karnataka, India</strong>, I actively work to expand my technical skills and industry
+                            knowledge.
+                        </p>
+                        <p>I balance both physical and intellectual challenges, bringing discipline, teamwork, and
+                            resilience from sports into the world of technology. I enjoy solving complex problems and
+                            continuously improving my technical and leadership abilities.</p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>prajwalsshetty96@gmail.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Mandya, Karnataka, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cybersecurity</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Problem Solving</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-users-cog"></i>
+                        <h3>Leadership</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h3>Sketching</h3>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-running"></i>
+                        <h3>Sports & Teamwork</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project Card: Password Strength Analyzer -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="project-title-info">
+                                <h3>Password Strength Analyzer</h3>
+                                <div class="project-category">Security Tool / Cybersecurity</div>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Built a password strength analyzer to evaluate password security based on length,
+                                character complexity, and entropy. The tool helps identify weak passwords and promotes
+                                secure authentication practices by providing real-time feedback.
+                            </p>
+                            <div class="project-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Evaluates password length and complexity
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Detects weak or common password patterns
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Provides user-friendly strength feedback
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> Encourages secure authentication practices
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Technologies: Python</span>
+                            </div>
+                            <div class="project-action">
+                                <a href="https://shetty7879.github.io/Cybersec-password-analyzer/" target="_blank"
+                                    rel="noopener noreferrer" class="project-btn primary-btn">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Shetty7879/Cybersec-password-analyzer.git" target="_blank"
+                                    rel="noopener noreferrer" class="project-btn secondary-btn-project">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports & Extracurricular Section -->
+        <section id="sports" class="section sports">
+            <div class="container">
+                <h2 class="section-title">Sports & Extracurricular</h2>
+                <div class="sports-card">
+                    <div class="sports-header">
+                        <div class="sports-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <div class="sports-title-info">
+                            <h3>VTU Inter-Collegiate Zonal Tournament</h3>
+                            <span class="sports-category">Basketball (Men) - Mysuru Division</span>
+                        </div>
+                    </div>
+
+                    <div class="sports-body">
+                        <p class="sports-description">
+                            Represented PES College of Engineering, Mandya in the VTU Inter-Collegiate Zonal Basketball
+                            Tournament (Mysuru Division). This experience strengthened my teamwork, discipline,
+                            leadership, and ability to perform under pressure—skills that strongly complement my
+                            academic and technical journey in computer science and cybersecurity.
+                        </p>
+
+                        <div class="sports-details">
+                            <div class="detail-box">
+                                <i class="fas fa-university"></i>
+                                <span><strong>University:</strong> Visvesvaraya Technological University (VTU)</span>
+                            </div>
+                            <div class="detail-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span><strong>Venue:</strong> The National Institute of Engineering, Mysuru</span>
+                            </div>
+                            <div class="detail-box">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span><strong>Year:</strong> 2022 – 2023</span>
+                            </div>
+                        </div>
+
+                        <div class="sports-action">
+                            <a href="assets/sports-certificate.jpg" class="view-cert-btn secondary-btn" target="_blank">
+                                <i class="fas fa-file-alt"></i> View Certificate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Service & Volunteering Section -->
+        <section id="social-service" class="section social-service">
+            <div class="container">
+                <h2 class="section-title">Social Service & Volunteering</h2>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" aria-label="Previous Slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-track">
+                        <!-- Volunteering Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Volunteering Experience</h3>
+                                    <span class="social-role">Volunteer</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> NSS & YRCW, PES College of
+                                    Engineering<br>
+                                    <strong>Date:</strong> 30 Oct 2025
+                                </p>
+                                <p class="social-description">
+                                    Actively contributed to community service initiatives, including blood donation
+                                    camps,
+                                    donor coordination, and student-led outreach programs.
+                                </p>
+                                <div class="social-action">
+                                    <a href="assets/blood-volunteer.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blood Donation Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Blood Donation</h3>
+                                    <span class="social-role">3 Donations (B+ve)</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> NSS & YRCW, PES College of
+                                    Engineering,
+                                    Mandya</p>
+                                <p class="social-description">
+                                    Donated blood on three occasions, supporting medical emergencies.
+                                </p>
+                                <div class="donation-dates">
+                                    <a href="assets/09-05-2024.jpg" target="_blank" class="date-link"><span><i
+                                                class="far fa-calendar-check"></i> 09-05-2024</span></a>
+                                    <a href="assets/12-12-2024.jpg" target="_blank" class="date-link"><span><i
+                                                class="far fa-calendar-check"></i> 12-12-2024</span></a>
+                                    <a href="assets/30-10-2025.jpg" target="_blank" class="date-link"><span><i
+                                                class="far fa-calendar-check"></i> 30-10-2025</span></a>
+                                </div>
+                                <p class="date-hint"><i class="fas fa-info-circle"></i> Click a date to view its
+                                    certificate
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <!-- Walkathon Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <i class="fas fa-walking"></i>
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Walk for Humanity</h3>
+                                    <span class="social-role">Community Participant</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Indian Red Cross Society<br>
+                                    <strong>Date:</strong> 21 Sep 2024
+                                </p>
+                                <p class="social-description">
+                                    Joined the "Walk for Humanity" to raise awareness for peace and community solidarity
+                                    during World Peace Day 2024.
+                                </p>
+                                <div class="social-action">
+                                    <a href="assets/walkathon-certificate.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ISTE Volunteering Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Event Volunteering</h3>
+                                    <span class="social-role">19th ISTE Student Convention</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> ISTE Karnataka<br>
+                                    <strong>Date:</strong> 7 June 2024
+                                </p>
+                                <p class="social-description">
+                                    Facilitated event coordination and guided participants for the 19th ISTE State-Level
+                                    Student Convention, ensuring seamless execution.
+                                </p>
+                                <div class="social-action">
+                                    <a href="assets/19th-state.png" class="view-cert-btn secondary-btn" target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" aria-label="Next Slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience">
+            <div class="container">
+                <h2 class="section-title">Experience & Positions</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content logo-right">
+                            <div class="timeline-text">
+                                <h3>President</h3>
+                                <span class="timeline-date">June 2025 – Present</span>
+                                <p class="timeline-org">Youth Red Cross Wing (YRCW), PESCE</p>
+                            </div>
+                            <img src="assets/yrcw-logo.png" alt="YRCW Logo" class="exp-logo">
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content logo-left">
+                            <img src="assets/nss-logo.png" alt="NSS Logo" class="exp-logo">
+                            <div class="timeline-text">
+                                <h3>President</h3>
+                                <span class="timeline-date">June 2025 – Present</span>
+                                <p class="timeline-org">National Service Scheme (NSS) – PESCE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content logo-right">
+                            <div class="timeline-text">
+                                <h3>Core Member</h3>
+                                <span class="timeline-date">June 2023 – Present</span>
+                                <p class="timeline-org">ISTE PESCE</p>
+                            </div>
+                            <img src="assets/iste-logo.png" alt="ISTE Logo" class="exp-logo">
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content logo-left">
+                            <img src="assets/iste-logo.png" alt="ISTE Logo" class="exp-logo">
+                            <div class="timeline-text">
+                                <h3>Organizer</h3>
+                                <span class="timeline-date">June 2023 - June 2024</span>
+                                <p class="timeline-org">ISTE - PESCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="edu-card">
+                        <div class="edu-content">
+                            <img src="assets/college-logo.png" alt="PES College of Engineering Logo" class="edu-logo">
+                            <div class="edu-info">
+                                <h3>Bachelor of Engineering (CSE)</h3>
+                                <p class="edu-school">PES College of Engineering, Mandya</p>
+                                <span class="edu-year">2022 – 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-content">
+                            <img src="assets/puc-logo.jpg" alt="Excellent PU College Logo" class="edu-logo">
+                            <div class="edu-info">
+                                <h3>PUC (PCMB)</h3>
+                                <p class="edu-school">Excellent PU College, Moodbidri</p>
+                                <span class="edu-year">2020 – 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edu-card">
+                        <div class="edu-content">
+                            <img src="assets/school-logo.jpeg" alt="22nd Century Public School Logo" class="edu-logo">
+                            <div class="edu-info">
+                                <h3>SSLC</h3>
+                                <p class="edu-school">22nd Century Public School, Mandya</p>
+                                <span class="edu-year">2019 – 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section certifications">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" aria-label="Previous Slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-track">
+                        <!-- Hackingflix Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/Hackingflix-logo.jpg" alt="Hackingflix Logo">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>How To Become a Highly Paid Hacker</h3>
+                                    <span class="social-role">Certificate of Completion</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Hackingflix</p>
+                                <p class="social-description">
+                                    Completed a comprehensive course on ethical hacking and cybersecurity fundamentals,
+                                    mastering techniques to identify and mitigate security vulnerabilities.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Learned advanced penetration testing techniques</li>
+                                        <li>Mastered network security concepts and defense strategies</li>
+                                        <li>Gained practical experience in ethical hacking methodologies</li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/Hacking-flix.png" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mastercard Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/MasterCard-Logo.png" alt="Mastercard Logo">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Cybersecurity Job Simulation</h3>
+                                    <span class="social-role">Virtual Experience Program Participant</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Mastercard (via Forage)</p>
+                                <p class="social-description">
+                                    Completed a practical job simulation involving identity management, security
+                                    analysis,
+                                    and threat detection within a corporate environment.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Analyzed and interpreted security alerts and phishing threats</li>
+                                        <li>Designed and implemented identity management strategies</li>
+                                        <li>Identified security gaps and proposed effective mitigation plans</li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/marter-card.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Elevate Labs Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/elevatelabs-logo.jpg" alt="Elevate Labs Logo">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Elevate Labs 45 Days Internship</h3>
+                                    <span class="social-role">Cybersecurity Intern</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Elevate Labs</p>
+                                <p class="social-description">
+                                    Successfully completed a 45-day internship focused on practical cybersecurity
+                                    applications, vulnerability assessment, and real-world security challenges.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Conducted vulnerability assessments and security audits</li>
+                                        <li>Collaborated with the security team on real-world projects</li>
+                                        <li>Gained hands-on experience in securing web applications</li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/elevatelab-certificate01.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AIG Card -->
+                        <div class="social-card blue-theme">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/aig-logo.jpg" alt="AIG Logo">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>AIG – Shields Up: Cybersecurity</h3>
+                                    <span class="social-role">Virtual Experience Program (Forage)</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> AIG (via Forage)</p>
+                                <p class="social-description">
+                                    Executed a job simulation focused on cyber defense, vulnerability management, and
+                                    threat
+                                    mitigation in an enterprise setting.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Analyzed threats using CISA advisories for the Cyber Defense Unit</li>
+                                        <li>Assessed vulnerabilities and drafted remediation guidance</li>
+                                        <li>Scripted a Python tool to bruteforce keys and prevent ransom payments</li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/aig-certificate.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Deloitte Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/Deloitte-logo.png" alt="Deloitte Logo"
+                                        style="object-fit: contain; background: white;">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Deloitte Australia – Cyber Job Simulation</h3>
+                                    <span class="social-role">Virtual Experience Program (Forage)</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Deloitte Australia (via Forage)</p>
+                                <p class="social-description">
+                                    Completed a hands-on cyber security job simulation focused on real-world incident
+                                    response and threat detection.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Analyzed web activity logs to identify suspicious and abnormal behavior</li>
+                                        <li>Supported a simulated client during a cyber security breach</li>
+                                        <li>Investigated user activity to detect potential security threats and risks
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/deloitte-certificate.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Commonwealth Bank Card -->
+                        <div class="social-card">
+                            <div class="social-header">
+                                <div class="social-icon">
+                                    <img src="assets/commonwealth_logo.png" alt="Commonwealth Bank Logo"
+                                        style="object-fit: contain; background: white;">
+                                </div>
+                                <div class="social-title-info">
+                                    <h3>Commonwealth Bank – Introduction to Cybersecurity</h3>
+                                    <span class="social-role">Virtual Experience Program Participant (Forage)</span>
+                                </div>
+                            </div>
+                            <div class="social-body">
+                                <p class="social-org"><strong>Organization:</strong> Commonwealth Bank (via Forage)</p>
+                                <p class="social-description">
+                                    Completed a hands-on cybersecurity job simulation focused on fraud detection,
+                                    incident response, and security operations.
+                                </p>
+                                <div class="key-contributions">
+                                    <h4>Key Learnings:</h4>
+                                    <ul>
+                                        <li>Performed fraud detection and incident response tasks as a cybersecurity
+                                            generalist</li>
+                                        <li>Built and analyzed Splunk dashboards to identify fraud and suspicious
+                                            activity</li>
+                                        <li>Conducted web application penetration testing and proposed remediation
+                                            strategies</li>
+                                    </ul>
+                                </div>
+                                <div class="social-action">
+                                    <a href="assets/commonwealth_certificate.jpg" class="view-cert-btn secondary-btn"
+                                        target="_blank">
+                                        <i class="fas fa-file-alt"></i> View Certificate
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" aria-label="Next Slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <p>Feel free to reach out for collaborations or just a friendly hello.</p>
+                        <a href="mailto:prajwalsshetty96@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> prajwalsshetty96@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/prajwal-s-shetty5" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Prajwal S Shetty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
