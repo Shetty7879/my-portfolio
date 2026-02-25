@@ -176,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start
     startTyping();
 
-    // Carousel Logic
     // Carousel Logic (Generic for multiple carousels)
     const carousels = document.querySelectorAll('.carousel-wrapper');
 
@@ -185,18 +184,125 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = wrapper.querySelector('.prev-btn');
         const nextBtn = wrapper.querySelector('.next-btn');
 
-        if (track && prevBtn && nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                const cardWidth = track.firstElementChild.offsetWidth;
-                const gap = 32; // 2rem approx
-                track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-            });
+        if (!track || !prevBtn || !nextBtn) return;
 
-            prevBtn.addEventListener('click', () => {
-                const cardWidth = track.firstElementChild.offsetWidth;
-                const gap = 32;
-                track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-            });
-        }
+        let cards = Array.from(track.children);
+        if (cards.length === 0) return;
+
+        // Clone for infinite scroll
+        cards.forEach(card => {
+            const cloneEnd = card.cloneNode(true);
+            track.appendChild(cloneEnd);
+        });
+
+        cards.forEach(card => {
+            const cloneStart = card.cloneNode(true);
+            track.insertBefore(cloneStart, track.firstElementChild);
+        });
+
+        const getCardWidthAndGap = () => {
+            // Recalculate dynamically to allow for resizing
+            const cardWidth = track.firstElementChild.offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 32;
+            return cardWidth + gap;
+        };
+
+        // Initialize scroll position to real first element
+        setTimeout(() => {
+            track.scrollLeft = getCardWidthAndGap() * cards.length;
+        }, 100);
+
+        let isAnimating = false;
+
+        const scrollCarousel = (direction) => {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const scrollAmount = getCardWidthAndGap();
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+
+            setTimeout(() => {
+                isAnimating = false;
+                checkBoundary();
+            }, 500); // Matches smooth scroll duration
+        };
+
+        nextBtn.addEventListener('click', () => scrollCarousel(1));
+        prevBtn.addEventListener('click', () => scrollCarousel(-1));
+
+        const checkBoundary = () => {
+            const scrollAmount = getCardWidthAndGap();
+            const maxScroll = track.scrollWidth - track.clientWidth;
+
+            // Scrolled to beginning (cloned start area)
+            if (track.scrollLeft < scrollAmount - 10) { // 10px threshold
+                track.style.scrollBehavior = 'auto'; // Disable smooth scrolling temporarily
+                track.scrollLeft = track.scrollLeft + (scrollAmount * cards.length);
+                // Force reflow
+                track.offsetHeight;
+                track.style.scrollBehavior = 'smooth'; // Restore
+            }
+            // Scrolled to end (cloned end area)
+            else if (track.scrollLeft > maxScroll - scrollAmount + 10) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = track.scrollLeft - (scrollAmount * cards.length);
+                track.offsetHeight;
+                track.style.scrollBehavior = 'smooth';
+            }
+        };
+
+        track.addEventListener('scroll', () => {
+            // Only reset boundary if not currently animating through a click to avoid jerky behavior
+            if (!isAnimating) {
+                checkBoundary();
+            }
+        });
+
+        // Mouse Drag / Swipe
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            track.classList.add('active');
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+            track.style.scrollBehavior = 'auto'; // Disable smooth for drag
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDown = false;
+            track.classList.remove('active');
+            track.style.scrollBehavior = 'smooth';
+            checkBoundary();
+        });
+
+        track.addEventListener('mouseup', () => {
+            isDown = false;
+            track.classList.remove('active');
+            track.style.scrollBehavior = 'smooth';
+            checkBoundary();
+            // Optional: Snap to closest card after drag ends
+            const scrollAmount = getCardWidthAndGap();
+            const currentScroll = track.scrollLeft;
+            const targetScroll = Math.round(currentScroll / scrollAmount) * scrollAmount;
+            track.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            track.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch Swipe Events (Native scrolling handles this well, but keeping consistent snap)
+        track.addEventListener('touchend', () => {
+            setTimeout(() => {
+                if (!isAnimating) checkBoundary();
+            }, 100);
+        });
     });
 });

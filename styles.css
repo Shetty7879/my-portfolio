@@ -1346,6 +1346,13 @@ h4 {
     -ms-overflow-style: none;
     /* IE And Edge */
     width: 100%;
+    cursor: grab;
+}
+
+.carousel-track.active {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    /* Disable snapping while dragging so it feels fluid */
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -1353,6 +1360,7 @@ h4 {
     /* Chrome, Safari, Opera */
 }
 
+.carousel-track .project-card,
 .carousel-track .social-card {
     flex: 0 0 320px;
     /* Desktop width */
@@ -1400,9 +1408,15 @@ h4 {
 }
 
 @media (max-width: 768px) {
+
+    .carousel-track .project-card,
     .carousel-track .social-card {
         flex: 0 0 85vw;
         /* Wider cards on mobile */
+    }
+
+    #projects-carousel .project-card {
+        flex: 0 0 90vw;
     }
 
     .carousel-wrapper {
