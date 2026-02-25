@@ -1335,6 +1335,8 @@ h4 {
 
 .carousel-track {
     display: flex;
+    align-items: stretch;
+    /* Forces equal height based on tallest child */
     gap: 2rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -1424,6 +1426,8 @@ h4 {
         /* No side padding, bottom padding for buttons */
         position: relative;
         /* Ensure buttons position relative to this */
+        overflow: hidden;
+        /* Strict horizontal containment */
     }
 
     .carousel-btn {

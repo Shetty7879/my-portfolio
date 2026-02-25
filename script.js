@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             track.appendChild(cloneEnd);
         });
 
-        cards.forEach(card => {
+        [...cards].reverse().forEach(card => {
             const cloneStart = card.cloneNode(true);
             track.insertBefore(cloneStart, track.firstElementChild);
         });
