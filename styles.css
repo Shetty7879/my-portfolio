@@ -448,7 +448,7 @@ h4 {
 }
 
 .project-body {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
 }
@@ -1107,7 +1107,8 @@ h4 {
 }
 
 .social-body {
-    flex: 1;
+    flex: 1 1 auto;
+    /* Ensures element flexibly absorbs remaining free-space height */
     display: flex;
     flex-direction: column;
 }
@@ -1415,6 +1416,8 @@ h4 {
     .carousel-track .social-card {
         flex: 0 0 85vw;
         /* Wider cards on mobile */
+        height: auto;
+        /* Re-affirm equal stretch padding natively on mobile bounds */
     }
 
     #projects-carousel .project-card {
