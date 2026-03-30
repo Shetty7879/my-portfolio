@@ -1317,13 +1317,6 @@ h4 {
     }
 }
 
-/* Blue Theme for AIG Card */
-.social-card.blue-theme .social-icon {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-}
-
-
 
 /* Carousel Layout */
 .carousel-wrapper {
@@ -1417,6 +1410,9 @@ h4 {
         flex: 0 0 85vw;
         /* Wider cards on mobile */
         height: auto;
+        max-height: 65vh;
+        overflow-y: auto;
+        touch-action: pan-x pan-y;
         /* Re-affirm equal stretch padding natively on mobile bounds */
     }
 
