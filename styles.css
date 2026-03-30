@@ -1343,6 +1343,7 @@ h4 {
     /* IE And Edge */
     width: 100%;
     cursor: grab;
+    touch-action: pan-x;
 }
 
 .carousel-track.active {
@@ -1412,7 +1413,7 @@ h4 {
         height: auto;
         max-height: 65vh;
         overflow-y: auto;
-        touch-action: pan-x pan-y;
+        touch-action: pan-y;
         /* Re-affirm equal stretch padding natively on mobile bounds */
     }
 
