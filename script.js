@@ -189,30 +189,59 @@ document.addEventListener('DOMContentLoaded', () => {
         let cards = Array.from(track.children);
         if (cards.length === 0) return;
 
-        // Clone for infinite scroll
+        // Double clone for seamless infinite scroll buffer
         cards.forEach(card => {
-            const cloneEnd = card.cloneNode(true);
-            track.appendChild(cloneEnd);
+            const cloneEnd1 = card.cloneNode(true);
+            const cloneEnd2 = card.cloneNode(true);
+            track.appendChild(cloneEnd1);
+            track.appendChild(cloneEnd2);
         });
 
         [...cards].reverse().forEach(card => {
-            const cloneStart = card.cloneNode(true);
-            track.insertBefore(cloneStart, track.firstElementChild);
+            const cloneStart1 = card.cloneNode(true);
+            const cloneStart2 = card.cloneNode(true);
+            track.insertBefore(cloneStart1, track.firstElementChild);
+            track.insertBefore(cloneStart2, track.firstElementChild);
         });
 
         const getCardWidthAndGap = () => {
-            // Recalculate dynamically to allow for resizing
             const cardWidth = track.firstElementChild.offsetWidth;
             const gap = parseFloat(window.getComputedStyle(track).gap) || 32;
             return cardWidth + gap;
         };
 
-        // Initialize scroll position to real first element
-        setTimeout(() => {
-            track.scrollLeft = getCardWidthAndGap() * cards.length;
-        }, 100);
+        // Start initial scroll position at the original card set (offset by 2 cloned sets)
+        const initScroll = () => {
+            track.style.scrollBehavior = 'auto';
+            track.scrollLeft = getCardWidthAndGap() * (cards.length * 2);
+            track.offsetHeight;
+            track.style.scrollBehavior = 'smooth';
+        };
+        setTimeout(initScroll, 100);
+        window.addEventListener('resize', initScroll);
 
         let isAnimating = false;
+
+        const checkBoundary = () => {
+            const scrollAmount = getCardWidthAndGap();
+            const setWidth = scrollAmount * cards.length;
+            const startOffset = setWidth * 2;
+
+            // If scrolled left past start of original cards
+            if (track.scrollLeft < startOffset - 10) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft += setWidth;
+                track.offsetHeight;
+                track.style.scrollBehavior = 'smooth';
+            }
+            // If scrolled right past 4th card into end clones -> seamless jump back 1 set
+            else if (track.scrollLeft >= startOffset + setWidth - 10) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft -= setWidth;
+                track.offsetHeight;
+                track.style.scrollBehavior = 'smooth';
+            }
+        };
 
         const scrollCarousel = (direction) => {
             if (isAnimating) return;
@@ -224,35 +253,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 isAnimating = false;
                 checkBoundary();
-            }, 500); // Matches smooth scroll duration
+            }, 520);
         };
 
         nextBtn.addEventListener('click', () => scrollCarousel(1));
         prevBtn.addEventListener('click', () => scrollCarousel(-1));
 
-        const checkBoundary = () => {
-            const scrollAmount = getCardWidthAndGap();
-            const maxScroll = track.scrollWidth - track.clientWidth;
-
-            // Scrolled to beginning (cloned start area)
-            if (track.scrollLeft < scrollAmount - 10) { // 10px threshold
-                track.style.scrollBehavior = 'auto'; // Disable smooth scrolling temporarily
-                track.scrollLeft = track.scrollLeft + (scrollAmount * cards.length);
-                // Force reflow
-                track.offsetHeight;
-                track.style.scrollBehavior = 'smooth'; // Restore
-            }
-            // Scrolled to end (cloned end area)
-            else if (track.scrollLeft > maxScroll - scrollAmount + 10) {
-                track.style.scrollBehavior = 'auto';
-                track.scrollLeft = track.scrollLeft - (scrollAmount * cards.length);
-                track.offsetHeight;
-                track.style.scrollBehavior = 'smooth';
-            }
-        };
-
         track.addEventListener('scroll', () => {
-            // Only reset boundary if not currently animating through a click to avoid jerky behavior
             if (!isAnimating) {
                 checkBoundary();
             }
@@ -303,6 +310,30 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (!isAnimating) checkBoundary();
             }, 100);
+        });
+    });
+
+    // 3D Card Mouse Tilt Effect
+    const tiltElements = document.querySelectorAll('.project-card, .social-card, .skill-card, .sports-card, .edu-card, .timeline-content');
+
+    tiltElements.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            // Disable tilt during carousel dragging
+            if (card.closest('.carousel-track') && card.closest('.carousel-track').classList.contains('active')) return;
+
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -6; // 6 deg tilt max
+            const rotateY = ((x - centerX) / centerX) * 6;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
         });
     });
 });
