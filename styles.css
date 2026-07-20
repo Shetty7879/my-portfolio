@@ -1126,6 +1126,10 @@ h4 {
 }
 
 @media (max-width: 768px) {
+    .prof-card {
+        padding: 1.8rem 1.4rem;
+    }
+
     .prof-header {
         flex-direction: column;
         align-items: center;
@@ -1145,9 +1149,33 @@ h4 {
     .prof-actions .project-btn {
         width: 100%;
     }
+
+    .muted-note {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
+    .prof-card {
+        padding: 1.4rem 1rem;
+    }
+
+    .prof-title-info h3 {
+        font-size: 1.35rem;
+    }
+
+    .prof-badges {
+        gap: 0.5rem;
+    }
+
+    .associated-badge,
+    .status-badge {
+        font-size: 11px;
+        padding: 0.2rem 0.5rem;
+        height: 25px;
+    }
+
     .resp-grid {
         grid-template-columns: 1fr;
     }
