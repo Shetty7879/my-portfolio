@@ -349,6 +349,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxNextBtn = document.getElementById('lightbox-next');
     const lightboxCloseBtn = portfolioLightbox ? portfolioLightbox.querySelector('.lightbox-close') : null;
 
+    // Instant Image Preloading System for 0ms viewing delay
+    const preloadCertificateImages = () => {
+        const triggers = document.querySelectorAll('[data-cert-img]');
+        const preloadedUrls = new Set();
+        triggers.forEach(trigger => {
+            const single = trigger.getAttribute('data-cert-img');
+            const gallery = trigger.getAttribute('data-gallery-imgs');
+            if (gallery) {
+                gallery.split('|').forEach(url => preloadedUrls.add(url.trim()));
+            } else if (single) {
+                preloadedUrls.add(single.trim());
+            }
+        });
+        preloadedUrls.forEach(url => {
+            if (url) {
+                const img = new Image();
+                img.src = url;
+            }
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', preloadCertificateImages);
+    } else {
+        preloadCertificateImages();
+    }
+
     let galleryImages = [];
     let galleryCaptions = [];
     let galleryLabels = [];
