@@ -2274,132 +2274,135 @@ h4 {
         width: 100%;
     }
 
-    /* Lightbox Modal Responsive Optimization for Mobile & Tablet */
+    /* Lightbox Modal Mobile Optimization (<768px) */
     .lightbox-modal {
-        padding: 10px;
+        padding: 20px 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .lightbox-close {
-        top: 12px;
+        top: 16px;
         right: 16px;
-        font-size: 2rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.8rem;
         z-index: 2010;
         background: rgba(11, 17, 32, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        width: 40px;
-        height: 40px;
+        border: 1px solid rgba(56, 189, 248, 0.35);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
+        color: var(--text-primary);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .lightbox-nav-btn {
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
+    .lightbox-close:hover {
+        transform: scale(1.08);
+        color: var(--accent-color);
     }
 
-    #lightbox-prev {
-        left: 8px;
+    .lightbox-content {
+        max-width: 95vw;
+        max-height: 88vh;
+        justify-content: center;
     }
 
-    #lightbox-next {
-        right: 8px;
+    .lightbox-img-wrapper {
+        max-width: 95vw;
+        max-height: 45vh;
+        margin-bottom: 0;
     }
 
     .lightbox-content img {
         max-width: 95vw;
-        max-height: 60vh;
+        max-height: 45vh;
+        object-fit: contain;
+        border-radius: 14px;
+    }
+
+    .lightbox-counter {
+        top: 8px;
+        right: 8px;
+        padding: 3px 10px;
+        font-size: 0.78rem;
+    }
+
+    .lightbox-nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(19, 29, 51, 0.85);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    #lightbox-prev {
+        left: 6px;
+    }
+
+    #lightbox-next {
+        right: 6px;
+    }
+
+    .lightbox-caption-wrapper {
+        margin-top: 0.6rem;
+        text-align: center;
     }
 
     #lightbox-title {
         font-size: 1.1rem;
+        margin-bottom: 0.15rem;
     }
 
     #lightbox-org {
         font-size: 0.85rem;
+        margin-bottom: 0.15rem;
     }
 
     .lightbox-subcaption {
         font-size: 0.82rem;
-        padding: 0 8px;
+        margin-top: 0.15rem;
+        padding: 0 10px;
+        line-height: 1.3;
     }
 
     .lightbox-thumbnails {
-        gap: 8px;
-        margin-top: 0.6rem;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 0.75rem;
+        flex-wrap: nowrap;
     }
 
     .lightbox-thumb {
-        padding: 3px 8px 3px 4px;
-        font-size: 0.78rem;
-    }
-
-    .lightbox-thumb img {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .lightbox-nav-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-    }
-
-    #lightbox-prev {
-        left: 4px;
-    }
-
-    #lightbox-next {
-        right: 4px;
+        padding: 4px;
+        border-radius: 12px;
+        background: rgba(19, 29, 51, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .lightbox-thumb span {
         display: none;
     }
 
-    .lightbox-thumb {
-        padding: 4px;
+    .lightbox-thumb img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
         border-radius: 8px;
     }
 
-    .lightbox-thumb img {
-        width: 32px;
-        height: 32px;
-    }
-}
-
-/* Mobile Landscape Optimization */
-@media (max-height: 500px) and (orientation: landscape) {
-    .lightbox-content img {
-        max-height: 48vh;
-    }
-
-    .lightbox-caption-wrapper {
-        margin-top: 0.4rem;
-    }
-
-    #lightbox-title {
-        font-size: 1rem;
-        margin-bottom: 0;
-    }
-
-    #lightbox-org,
-    .lightbox-subcaption {
-        font-size: 0.78rem;
-    }
-
-    .lightbox-thumbnails {
-        margin-top: 0.4rem;
-    }
-
-    .lightbox-thumb img {
-        width: 24px;
-        height: 24px;
+    .lightbox-thumb.active {
+        border-color: #38BDF8;
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        background: rgba(56, 189, 248, 0.15);
     }
 }
