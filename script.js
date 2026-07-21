@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const sections = document.querySelectorAll('.section, .hero, .skill-card, .timeline-item, .edu-card, .cert-card, .project-card');
+    const sections = document.querySelectorAll('.section, .hero, .skill-card, .timeline-item, .edu-card, .cert-card, .project-card, .award-card');
     sections.forEach(section => {
         section.style.opacity = '0'; // Initial state
         section.style.transform = 'translateY(20px)'; // Initial offset
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 3D Card Mouse Tilt Effect
-    const tiltElements = document.querySelectorAll('.project-card, .social-card, .skill-card, .sports-card, .edu-card, .timeline-content');
+    const tiltElements = document.querySelectorAll('.project-card, .social-card, .skill-card, .sports-card, .edu-card, .timeline-content, .award-card');
 
     tiltElements.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -336,4 +336,223 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
         });
     });
+
+    // Universal Lightbox Modal Logic with Gallery Support for All Certificates & Awards
+    const portfolioLightbox = document.getElementById('portfolio-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxOrg = document.getElementById('lightbox-org');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev');
+    const lightboxNextBtn = document.getElementById('lightbox-next');
+    const lightboxCloseBtn = portfolioLightbox ? portfolioLightbox.querySelector('.lightbox-close') : null;
+
+    let galleryImages = [];
+    let galleryCaptions = [];
+    let galleryLabels = [];
+    let currentGalleryIndex = 0;
+    let baseTitle = '';
+    let baseOrg = '';
+    let baseYear = '';
+    let lastFocusedElement = null;
+
+    const renderGalleryState = () => {
+        if (galleryImages.length === 0) return;
+
+        const currentImg = galleryImages[currentGalleryIndex];
+        const currentCap = galleryCaptions[currentGalleryIndex] || '';
+
+        if (lightboxImg) {
+            lightboxImg.src = currentImg;
+            lightboxImg.alt = baseTitle || 'Certificate Preview';
+        }
+
+        if (lightboxTitle) lightboxTitle.textContent = baseTitle || '';
+
+        if (lightboxOrg) {
+            let metaString = baseOrg || '';
+            if (baseYear) {
+                metaString += metaString ? ` • ${baseYear}` : baseYear;
+            }
+            lightboxOrg.textContent = metaString;
+        }
+
+        if (lightboxCaption) {
+            lightboxCaption.textContent = currentCap;
+            lightboxCaption.style.display = currentCap ? 'block' : 'none';
+        }
+
+        if (galleryImages.length > 1) {
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+                lightboxCounter.style.display = 'inline-block';
+            }
+            if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'flex';
+            if (lightboxNextBtn) lightboxNextBtn.style.display = 'flex';
+
+            // Render Thumbnails
+            if (lightboxThumbnails) {
+                lightboxThumbnails.innerHTML = '';
+                lightboxThumbnails.style.display = 'flex';
+                galleryImages.forEach((imgUrl, idx) => {
+                    const thumb = document.createElement('button');
+                    thumb.type = 'button';
+                    thumb.className = `lightbox-thumb ${idx === currentGalleryIndex ? 'active' : ''}`;
+                    const label = galleryLabels[idx] || (idx === 0 ? 'Certificate' : `Photo ${idx + 1}`);
+                    thumb.innerHTML = `<img src="${imgUrl}" alt="${label}"><span>${label}</span>`;
+                    thumb.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        currentGalleryIndex = idx;
+                        renderGalleryState();
+                    });
+                    lightboxThumbnails.appendChild(thumb);
+                });
+            }
+        } else {
+            if (lightboxCounter) lightboxCounter.style.display = 'none';
+            if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'none';
+            if (lightboxNextBtn) lightboxNextBtn.style.display = 'none';
+            if (lightboxThumbnails) {
+                lightboxThumbnails.innerHTML = '';
+                lightboxThumbnails.style.display = 'none';
+            }
+        }
+    };
+
+    const openPortfolioLightbox = (trigger) => {
+        if (!portfolioLightbox || !trigger) return;
+
+        lastFocusedElement = document.activeElement;
+
+        const singleImg = trigger.getAttribute('data-cert-img');
+        const rawGalleryImgs = trigger.getAttribute('data-gallery-imgs');
+        const rawGalleryCaptions = trigger.getAttribute('data-gallery-captions');
+        const rawGalleryLabels = trigger.getAttribute('data-gallery-labels');
+
+        baseTitle = trigger.getAttribute('data-cert-title') || '';
+        baseOrg = trigger.getAttribute('data-cert-org') || '';
+        baseYear = trigger.getAttribute('data-cert-year') || '';
+
+        if (rawGalleryImgs) {
+            galleryImages = rawGalleryImgs.split('|');
+            galleryCaptions = rawGalleryCaptions ? rawGalleryCaptions.split('|') : [];
+            galleryLabels = rawGalleryLabels ? rawGalleryLabels.split('|') : [];
+        } else if (singleImg) {
+            galleryImages = [singleImg];
+            galleryCaptions = [''];
+            galleryLabels = [''];
+        } else {
+            return;
+        }
+
+        currentGalleryIndex = 0;
+        renderGalleryState();
+
+        portfolioLightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        if (lightboxCloseBtn) lightboxCloseBtn.focus();
+    };
+
+    const closePortfolioLightbox = () => {
+        if (!portfolioLightbox) return;
+        portfolioLightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+    };
+
+    const nextGalleryImage = () => {
+        if (galleryImages.length > 1) {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            renderGalleryState();
+        }
+    };
+
+    const prevGalleryImage = () => {
+        if (galleryImages.length > 1) {
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            renderGalleryState();
+        }
+    };
+
+    // Event delegation for all elements with data-cert-img attribute
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-cert-img]');
+        if (trigger) {
+            e.preventDefault();
+            openPortfolioLightbox(trigger);
+        }
+    });
+
+    // Keyboard navigation (Enter/Space on triggers, ArrowLeft, ArrowRight, Escape in modal)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            const trigger = e.target.closest('[data-cert-img]');
+            if (trigger && e.target === trigger) {
+                e.preventDefault();
+                openPortfolioLightbox(trigger);
+                return;
+            }
+        }
+
+        if (!portfolioLightbox || !portfolioLightbox.classList.contains('active')) return;
+
+        if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextGalleryImage();
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevGalleryImage();
+        } else if (e.key === 'Escape') {
+            e.preventDefault();
+            closePortfolioLightbox();
+        }
+    });
+
+    if (lightboxPrevBtn) {
+        lightboxPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevGalleryImage();
+        });
+    }
+
+    if (lightboxNextBtn) {
+        lightboxNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextGalleryImage();
+        });
+    }
+
+    if (lightboxCloseBtn) {
+        lightboxCloseBtn.addEventListener('click', closePortfolioLightbox);
+    }
+
+    if (portfolioLightbox) {
+        portfolioLightbox.addEventListener('click', (e) => {
+            if (e.target === portfolioLightbox) {
+                closePortfolioLightbox();
+            }
+        });
+
+        // Touch Swipe Support for Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        portfolioLightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        portfolioLightbox.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) {
+                nextGalleryImage(); // Swipe left -> Next
+            } else if (touchEndX - touchStartX > 40) {
+                prevGalleryImage(); // Swipe right -> Prev
+            }
+        }, { passive: true });
+    }
 });
