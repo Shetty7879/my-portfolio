@@ -2620,7 +2620,7 @@ h4 {
     }
 
     .lightbox-content img {
-        max-width: 95vw;
+        max-width: 78vw;
         max-height: 45vh;
         object-fit: contain;
         border-radius: 14px;
@@ -2637,12 +2637,13 @@ h4 {
         width: 44px;
         height: 44px;
         font-size: 1.1rem;
-        top: 50%;
+        top: calc(20px + 22.5vh);
         transform: translateY(-50%);
         background: rgba(19, 29, 51, 0.85);
         border: 1px solid rgba(56, 189, 248, 0.4);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+        will-change: transform;
     }
 
     #lightbox-prev {
