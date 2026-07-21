@@ -1999,12 +1999,12 @@ h4 {
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
-.prev-btn {
+.carousel-btn.prev-btn {
     left: 0;
     /* Align to left padding edge */
 }
 
-.next-btn {
+.carousel-btn.next-btn {
     right: 0;
     /* Align to right padding edge */
 }
@@ -2047,12 +2047,12 @@ h4 {
         /* Prevent double-tap zoom */
     }
 
-    .prev-btn {
+    .carousel-btn.prev-btn {
         left: calc(50% - 60px);
         /* Adjusted for larger buttons and spacing */
     }
 
-    .next-btn {
+    .carousel-btn.next-btn {
         right: auto;
         left: calc(50% + 12px);
     }
