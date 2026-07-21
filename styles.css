@@ -1115,61 +1115,6 @@ h4 {
     flex-shrink: 0;
 }
 
-.exp-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--card-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: var(--accent-color);
-    flex-shrink: 0;
-}
-
-
-.timeline-desc {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 0.8rem;
-    font-family: var(--font-body);
-}
-
-.timeline-bullets {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 1rem;
-}
-
-.timeline-bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    font-family: var(--font-body);
-}
-
-.timeline-bullets li i {
-    color: var(--accent-color);
-    font-size: 0.85rem;
-    margin-top: 0.3rem;
-}
-
-.timeline-action {
-    margin-top: 1rem;
-}
-
-.btn-sm {
-    padding: 0.5rem 1.1rem;
-    font-size: 0.85rem;
-    display: inline-flex;
-    width: auto;
-}
 
 /* Professional Experience Section */
 .prof-wrapper {
@@ -1330,8 +1275,7 @@ h4 {
     font-family: var(--font-body);
 }
 
-.prof-responsibilities h4,
-.prof-tech-stack h4 {
+.prof-responsibilities h4 {
     color: var(--text-primary);
     font-size: 1.05rem;
     margin-bottom: 0.8rem;
@@ -1369,15 +1313,6 @@ h4 {
     font-size: 0.9rem;
 }
 
-.prof-tech-stack {
-    margin-bottom: 1.8rem;
-}
-
-.tech-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
 
 .prof-actions {
     display: flex;
@@ -1838,33 +1773,6 @@ h4 {
     font-weight: bold;
 }
 
-.blood-stats {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.stat-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
 .donation-dates {
     display: flex;
@@ -2329,13 +2237,6 @@ h4 {
     width: 100%;
 }
 
-.view-award-btn {
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-body);
-    min-width: 220px;
-    justify-content: center;
-}
 
 /* Lightbox Modal - Accelerated Instant Speed */
 .lightbox-modal {
@@ -2571,9 +2472,6 @@ h4 {
         grid-template-columns: 1fr;
     }
 
-    .award-action .view-award-btn {
-        width: 100%;
-    }
 
     /* Lightbox Modal Mobile Optimization (<768px) */
     .lightbox-modal {
