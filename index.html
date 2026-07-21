@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Patrick+Hand&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,6 +19,11 @@
 </head>
 
 <body>
+    <!-- Global Layered Background System Overlays -->
+    <div class="ambient-teal-glow"></div>
+    <div class="cyber-grid-overlay"></div>
+    <div class="noise-overlay"></div>
+
     <header class="header">
         <nav class="navbar container">
             <a href="#" class="logo">Prajwal<span>.</span></a>
@@ -79,7 +84,10 @@
         <!-- About Section -->
         <section id="about" class="section about">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <div class="section-header-block">
+                    <span class="section-label">ABOUT</span>
+                    <h2 class="section-title">About <span class="highlight-gradient">Me</span></h2>
+                </div>
                 <div class="about-content">
                     <div class="about-text">
                         <p>I am a <strong>Computer Science Engineering student</strong> passionate about
@@ -108,7 +116,10 @@
         <!-- Skills Section -->
         <section id="skills" class="section skills">
             <div class="container">
-                <h2 class="section-title">My Skills</h2>
+                <div class="section-header-block">
+                    <span class="section-label">SKILLS</span>
+                    <h2 class="section-title">Technical <span class="highlight-gradient">Skills</span></h2>
+                </div>
                 <div class="skills-grid">
                     <div class="skill-card">
                         <i class="fas fa-shield-alt"></i>
@@ -138,7 +149,10 @@
         <!-- Projects Section -->
         <section id="projects" class="section projects">
             <div class="container">
-                <h2 class="section-title">Projects</h2>
+                <div class="section-header-block">
+                    <span class="section-label">PROJECTS</span>
+                    <h2 class="section-title">Featured <span class="highlight-gradient">Projects</span></h2>
+                </div>
                 <div class="carousel-wrapper" id="projects-carousel">
                     <button class="carousel-btn prev-btn" aria-label="Previous Slide">
                         <i class="fas fa-chevron-left"></i>
@@ -341,7 +355,10 @@
         <!-- Sports & Extracurricular Section -->
         <section id="sports" class="section sports">
             <div class="container">
-                <h2 class="section-title">Sports & Extracurricular</h2>
+                <div class="section-header-block">
+                    <span class="section-label">SPORTS</span>
+                    <h2 class="section-title">Sports & <span class="highlight-gradient">Extracurricular</span></h2>
+                </div>
                 <div class="sports-card">
                     <div class="sports-header">
                         <div class="sports-icon">
@@ -380,8 +397,7 @@
                             <button type="button" class="view-cert-btn secondary-btn"
                                 data-cert-img="assets/sports-certificate.jpg"
                                 data-cert-title="VTU Inter-Collegiate Zonal Tournament"
-                                data-cert-org="VTU & PES College of Engineering"
-                                data-cert-year="2022 – 2023">
+                                data-cert-org="VTU & PES College of Engineering" data-cert-year="2022 – 2023">
                                 <i class="fas fa-file-alt"></i> View Certificate
                             </button>
                         </div>
@@ -393,7 +409,10 @@
         <!-- Social Service & Volunteering Section -->
         <section id="social-service" class="section social-service">
             <div class="container">
-                <h2 class="section-title">Social Service & Volunteering</h2>
+                <div class="section-header-block">
+                    <span class="section-label">SOCIAL</span>
+                    <h2 class="section-title">Social Service & <span class="highlight-gradient">Volunteering</span></h2>
+                </div>
                 <div class="carousel-wrapper">
                     <button class="carousel-btn prev-btn" aria-label="Previous Slide">
                         <i class="fas fa-chevron-left"></i>
@@ -425,8 +444,7 @@
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/blood-volunteer.jpg"
                                         data-cert-title="Volunteering Experience"
-                                        data-cert-org="NSS & YRCW, PES College of Engineering"
-                                        data-cert-year="2025">
+                                        data-cert-org="NSS & YRCW, PES College of Engineering" data-cert-year="2025">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
                                 </div>
@@ -452,22 +470,19 @@
                                     Donated blood on three occasions, supporting medical emergencies.
                                 </p>
                                 <div class="donation-dates">
-                                    <button type="button" class="date-link"
-                                        data-cert-img="assets/09-05-2024.jpg"
+                                    <button type="button" class="date-link" data-cert-img="assets/09-05-2024.jpg"
                                         data-cert-title="Blood Donation Certificate"
                                         data-cert-org="NSS & YRCW, PES College of Engineering"
                                         data-cert-year="09 May 2024">
                                         <span><i class="far fa-calendar-check"></i> 09-05-2024</span>
                                     </button>
-                                    <button type="button" class="date-link"
-                                        data-cert-img="assets/12-12-2024.jpg"
+                                    <button type="button" class="date-link" data-cert-img="assets/12-12-2024.jpg"
                                         data-cert-title="Blood Donation Certificate"
                                         data-cert-org="NSS & YRCW, PES College of Engineering"
                                         data-cert-year="12 Dec 2024">
                                         <span><i class="far fa-calendar-check"></i> 12-12-2024</span>
                                     </button>
-                                    <button type="button" class="date-link"
-                                        data-cert-img="assets/30-10-2025.jpg"
+                                    <button type="button" class="date-link" data-cert-img="assets/30-10-2025.jpg"
                                         data-cert-title="Blood Donation Certificate"
                                         data-cert-org="NSS & YRCW, PES College of Engineering"
                                         data-cert-year="30 Oct 2025">
@@ -503,8 +518,7 @@
                                 <div class="social-action">
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/walkathon-certificate.jpg"
-                                        data-cert-title="Walk for Humanity"
-                                        data-cert-org="Indian Red Cross Society"
+                                        data-cert-title="Walk for Humanity" data-cert-org="Indian Red Cross Society"
                                         data-cert-year="2024">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
@@ -535,8 +549,7 @@
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/19th-state.png"
                                         data-cert-title="19th ISTE State-Level Student Convention"
-                                        data-cert-org="ISTE Karnataka"
-                                        data-cert-year="2024">
+                                        data-cert-org="ISTE Karnataka" data-cert-year="2024">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
                                 </div>
@@ -554,7 +567,10 @@
         <!-- Experience Section (Leadership & Positions) -->
         <section id="experience" class="section experience">
             <div class="container">
-                <h2 class="section-title">Experience & Positions</h2>
+                <div class="section-header-block">
+                    <span class="section-label">EXPERIENCE</span>
+                    <h2 class="section-title">Leadership <span class="highlight-gradient">Experience</span></h2>
+                </div>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -607,19 +623,25 @@
         <!-- Professional Experience Section -->
         <section id="professional-experience" class="section professional-experience fade-in">
             <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
+                <div class="section-header-block">
+                    <span class="section-label">CAREER</span>
+                    <h2 class="section-title">Professional <span class="highlight-gradient">Experience</span></h2>
+                </div>
                 <div class="prof-wrapper">
                     <div class="prof-card">
                         <div class="prof-header">
                             <img src="assets/nextosys-logo.jpg" alt="Nextosys AI Logo" class="prof-logo">
                             <div class="prof-title-info">
                                 <div class="prof-badges">
-                                    <span class="associated-badge"><i class="fas fa-circle"></i> Associated with Nextosys AI</span>
-                                    <span class="status-badge"><i class="fas fa-circle"></i> Onboarding in Progress</span>
+                                    <span class="associated-badge"><i class="fas fa-circle"></i> Associated with
+                                        Nextosys AI</span>
+                                    <span class="status-badge"><i class="fas fa-circle"></i> Onboarding in
+                                        Progress</span>
                                 </div>
                                 <h3>Cybersecurity & AI Engineer</h3>
                                 <div class="prof-company-date">
-                                    <span class="prof-company">Nextosys AI &bull; Engineering Team Association &bull; 2026</span>
+                                    <span class="prof-company">Nextosys AI &bull; Engineering Team Association &bull;
+                                        2026</span>
                                 </div>
                                 <div class="prof-subtitle">
                                     <i class="fas fa-map-marker-alt"></i> AI Startup &bull; Udupi, Karnataka
@@ -662,7 +684,10 @@
         <!-- Education Section -->
         <section id="education" class="section education">
             <div class="container">
-                <h2 class="section-title">Education</h2>
+                <div class="section-header-block">
+                    <span class="section-label">EDUCATION</span>
+                    <h2 class="section-title">Academic <span class="highlight-gradient">Education</span></h2>
+                </div>
                 <div class="education-grid">
                     <div class="edu-card">
                         <div class="edu-content">
@@ -701,7 +726,10 @@
         <!-- Certifications Section -->
         <section id="certifications" class="section certifications">
             <div class="container">
-                <h2 class="section-title">Certifications</h2>
+                <div class="section-header-block">
+                    <span class="section-label">CERTIFICATIONS</span>
+                    <h2 class="section-title">Professional <span class="highlight-gradient">Certifications</span></h2>
+                </div>
                 <div class="carousel-wrapper">
                     <button class="carousel-btn prev-btn" aria-label="Previous Slide">
                         <i class="fas fa-chevron-left"></i>
@@ -809,8 +837,7 @@
                                 <div class="social-action">
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/elevatelab-certificate01.jpg"
-                                        data-cert-title="Elevate Labs 45 Days Internship"
-                                        data-cert-org="Elevate Labs">
+                                        data-cert-title="Elevate Labs 45 Days Internship" data-cert-org="Elevate Labs">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
                                 </div>
@@ -888,8 +915,7 @@
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/cip_certificate.png"
                                         data-cert-title="Introduction to Critical Infrastructure Protection"
-                                        data-cert-org="OPSWAT Academy"
-                                        data-cert-year="2026">
+                                        data-cert-org="OPSWAT Academy" data-cert-year="2026">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
                                 </div>
@@ -911,7 +937,8 @@
                             <div class="social-body">
                                 <p class="social-org"><strong>Organization:</strong> Deloitte Australia (via Forage)</p>
                                 <p class="social-description">
-                                    Completed a practical job simulation focusing on cyber threat analysis, security risk assessment, and incident response strategy.
+                                    Completed a practical job simulation focusing on cyber threat analysis, security
+                                    risk assessment, and incident response strategy.
                                 </p>
                                 <div class="key-contributions">
                                     <h4>Key Learnings:</h4>
@@ -947,7 +974,8 @@
                             <div class="social-body">
                                 <p class="social-org"><strong>Organization:</strong> AIG (via Forage)</p>
                                 <p class="social-description">
-                                    Completed hands-on cybersecurity simulation covering vulnerability assessment, threat intelligence, and security architecture.
+                                    Completed hands-on cybersecurity simulation covering vulnerability assessment,
+                                    threat intelligence, and security architecture.
                                 </p>
                                 <div class="key-contributions">
                                     <h4>Key Learnings:</h4>
@@ -960,8 +988,7 @@
                                 <div class="social-action">
                                     <button type="button" class="view-cert-btn secondary-btn"
                                         data-cert-img="assets/aig-certificate.jpg"
-                                        data-cert-title="AIG Cybersecurity Program"
-                                        data-cert-org="AIG (via Forage)">
+                                        data-cert-title="AIG Cybersecurity Program" data-cert-org="AIG (via Forage)">
                                         <i class="fas fa-file-alt"></i> View Certificate
                                     </button>
                                 </div>
@@ -979,8 +1006,12 @@
         <!-- Awards & Honors Section -->
         <section id="awards" class="section awards">
             <div class="container">
-                <h2 class="section-title">🏆 Awards & Honors</h2>
-                <p class="section-desc">Recognition received for leadership, community service, and contributions beyond academics.</p>
+                <div class="section-header-block">
+                    <span class="section-label">AWARDS</span>
+                    <h2 class="section-title">Awards & <span class="highlight-gradient">Honors</span></h2>
+                </div>
+                <p class="section-desc">Recognition received for leadership, community service, and contributions beyond
+                    academics.</p>
 
                 <div class="awards-wrapper">
                     <div class="award-card compact-award-card">
@@ -996,15 +1027,19 @@
                                 </div>
                                 <div class="award-title-info">
                                     <h3>Best Service Award</h3>
-                                    <p class="award-org"><i class="fas fa-users"></i> Youth Red Cross Wing (YRCW) & ISTE</p>
-                                    <p class="award-inst"><i class="fas fa-university"></i> P.E.S. College of Engineering, Mandya</p>
-                                    <p class="award-date"><i class="far fa-calendar-alt"></i> Awarded: ISTE Day & YRCW Day 2024–25</p>
+                                    <p class="award-org"><i class="fas fa-users"></i> Youth Red Cross Wing (YRCW) & ISTE
+                                    </p>
+                                    <p class="award-inst"><i class="fas fa-university"></i> P.E.S. College of
+                                        Engineering, Mandya</p>
+                                    <p class="award-date"><i class="far fa-calendar-alt"></i> Awarded: ISTE Day & YRCW
+                                        Day 2024–25</p>
                                 </div>
                             </div>
 
                             <div class="award-body">
                                 <p class="award-description">
-                                    Awarded the Best Service Award for outstanding leadership, dedication, and contributions to Youth Red Cross Wing community service initiatives.
+                                    Awarded the Best Service Award for outstanding leadership, dedication, and
+                                    contributions to Youth Red Cross Wing community service initiatives.
                                 </p>
 
                                 <div class="award-highlights">
@@ -1020,8 +1055,7 @@
                                     <button type="button" class="project-btn primary-btn view-cert-btn"
                                         data-cert-img="assets/best-service-award.jpg"
                                         data-cert-title="Best Service Award"
-                                        data-cert-org="Youth Red Cross Wing (YRCW) & ISTE, PESCE"
-                                        data-cert-year="2025"
+                                        data-cert-org="Youth Red Cross Wing (YRCW) & ISTE, PESCE" data-cert-year="2025"
                                         data-gallery-imgs="assets/best-service-award.jpg|assets/award-ceremony.jpg"
                                         data-gallery-captions="Best Service Award Certificate & Medal|Receiving the Best Service Award during ISTE Day & YRCW Day 2024–25 at P.E.S. College of Engineering, Mandya."
                                         data-gallery-labels="Certificate|Award Ceremony">
@@ -1036,7 +1070,8 @@
         </section>
 
         <!-- Single Reusable Lightbox Modal for All Certificates & Awards (with Gallery Support) -->
-        <div id="portfolio-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Certificate Preview">
+        <div id="portfolio-lightbox" class="lightbox-modal" role="dialog" aria-modal="true"
+            aria-label="Certificate Preview">
             <span class="lightbox-close" aria-label="Close modal">&times;</span>
             <button type="button" class="lightbox-nav-btn prev-btn" id="lightbox-prev" aria-label="Previous image">
                 <i class="fas fa-chevron-left"></i>
@@ -1062,7 +1097,10 @@
         <!-- Contact Section -->
         <section id="contact" class="section contact">
             <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-header-block">
+                    <span class="section-label">CONTACT</span>
+                    <h2 class="section-title">Get In <span class="highlight-gradient">Touch</span></h2>
+                </div>
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <p>Feel free to reach out for collaborations or just a friendly hello.</p>

@@ -555,4 +555,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
     }
+
+    // Desktop Mouse Cursor Spotlight Interaction (GPU-accelerated, 60 FPS)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const spotlight = document.createElement('div');
+        spotlight.className = 'cursor-spotlight';
+        document.body.appendChild(spotlight);
+
+        let mouseX = -500;
+        let mouseY = -500;
+        let currentX = -500;
+        let currentY = -500;
+        let isMoving = false;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!spotlight.classList.contains('active')) {
+                spotlight.classList.add('active');
+            }
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame(updateSpotlight);
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            spotlight.classList.remove('active');
+        });
+
+        function updateSpotlight() {
+            currentX += (mouseX - currentX) * 0.15;
+            currentY += (mouseY - currentY) * 0.15;
+
+            spotlight.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+            if (Math.abs(mouseX - currentX) > 0.1 || Math.abs(mouseY - currentY) > 0.1) {
+                requestAnimationFrame(updateSpotlight);
+            } else {
+                isMoving = false;
+            }
+        }
+    }
 });
