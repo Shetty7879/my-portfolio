@@ -125,8 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             setTimeout(typePart2, speed);
                         } else {
                             span.classList.remove('typing-cursor');
-                            // Keep blinking cursor at the very end? User didn't ask, but it's cool.
-                            // span.classList.add('typing-cursor'); 
                             resolve();
                         }
                     }
@@ -319,7 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
     tiltElements.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             // Disable tilt during carousel dragging
-            if (card.closest('.carousel-track') && card.closest('.carousel-track').classList.contains('active')) return;
+            const track = card.closest('.carousel-track');
+            if (track && track.classList.contains('active')) return;
 
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -556,6 +555,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (lightboxCloseBtn) {
         lightboxCloseBtn.addEventListener('click', closePortfolioLightbox);
+        lightboxCloseBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closePortfolioLightbox();
+            }
+        });
     }
 
     if (portfolioLightbox) {

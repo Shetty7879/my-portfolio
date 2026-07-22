@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shetty7879.github.io/my-portfolio/sitemap.xml
